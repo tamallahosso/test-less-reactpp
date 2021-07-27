@@ -3,16 +3,9 @@ import PropTypes from "prop-types";
 import "./Table.css"
 import classNames from "classnames";
 
-export function Table({data, onInFavoritesClick, favorites}) {
+export function Table({data, onInFavoritesClick, inFavorite}) {
     const columns = ['Валюта', 'Курс, грн', 'Избранное']
 
-    const inFavorite = (id) => {
-        const favoriteIds = []
-        favorites.forEach(item => {
-            favoriteIds.push(item['r030'])
-        })
-        return favoriteIds.includes(id)
-    }
 
     return (<table>
         <thead>
@@ -38,12 +31,12 @@ export function Table({data, onInFavoritesClick, favorites}) {
 Table.propTypes = {
     data: PropTypes.array,
     onInFavoritesClick: PropTypes.func,
-    favorites: PropTypes.array,
+    inFavorite: PropTypes.func.isRequired,
 };
 
 Table.defaultProps = {
     data: [],
-    favorites: [],
     onInFavoritesClick: () => {
-    }
+    },
+
 };

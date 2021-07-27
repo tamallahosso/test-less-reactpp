@@ -41,12 +41,20 @@ export function App() {
         }
     ]
 
+    function inFavorite(id) {
+        const favoriteIds = []
+        favorites.forEach(item => {
+            favoriteIds.push(item['r030'])
+        })
+        return favoriteIds.includes(id)
+    }
+
     function onTabClick(tabIndex) {
         setActiveTab(tabIndex)
     }
 
     function onInFavoritesClick(elem) {
-        if (favorites.includes(elem)) {
+        if (inFavorite(elem['r030'])) {
             setFavorites(prev => prev.filter((item) => item['r030'] !== elem['r030']))
         } else {
             setFavorites(prev => [...prev, elem])
@@ -63,7 +71,7 @@ export function App() {
 
     function renderTable(data) {
         if (data.length) {
-            return <Table data={data} favorites={favorites} onInFavoritesClick={onInFavoritesClick}/>
+            return <Table data={data} onInFavoritesClick={onInFavoritesClick} inFavorite={inFavorite}/>
         } else {
             return <div className="message">Вы пока ничего не добавили</div>
         }
