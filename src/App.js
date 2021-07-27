@@ -15,7 +15,7 @@ export function App() {
 
 
     useEffect(() => {
-        const oldFavorites = getFavoritesFromLS()
+        const oldFavorites = getFavoritesFromLS() || []
         setFavorites(oldFavorites)
     }, [])
 
@@ -43,10 +43,15 @@ export function App() {
 
     function inFavorite(id) {
         const favoriteIds = []
-        favorites.forEach(item => {
-            favoriteIds.push(item['r030'])
-        })
-        return favoriteIds.includes(id)
+        if (favorites.length) {
+            favorites.forEach(item => {
+                favoriteIds.push(item['r030'])
+            })
+            return favoriteIds.includes(id)
+        } else {
+            return false
+        }
+
     }
 
     function onTabClick(tabIndex) {
