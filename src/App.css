@@ -1,0 +1,45 @@
+.App {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.tab-header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 15px;
+  border: 1px solid grey;
+}
+.tab-item {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  cursor: pointer;
+  background: #D8E6F3;
+}
+.active-tab {
+  background: #AFCDE7;
+}
+.tab-item + .tab-item {
+  border-left: 1px solid grey;
+}
+.message {
+  width: 100%;
+  text-align: center;
+}
+.refresh-btn {
+  min-width: 100px;
+  padding: 5px 10px;
+  border: 1px solid grey;
+  cursor: pointer;
+  background-color: green;
+  color: white;
+  margin-bottom: 15px;
+}
+.loading {
+  width: 100%;
+  text-align: center;
+}
+/*# sourceMappingURL=App.css.map */
